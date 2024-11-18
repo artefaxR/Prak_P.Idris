@@ -4,6 +4,7 @@ use App\Http\Controllers\AlamatController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,6 @@ Route::post(
 )->name('city.sync-city');
 
 Route::resource('alamat', AlamatController::class);
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/dologin', [AuthController::class, 'dologin'])->name('dologin');
