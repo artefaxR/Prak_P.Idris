@@ -15,7 +15,7 @@ class IsKonsumen
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'konsumen') {
+        if (auth()->user()->role == 'KONSUMEN') {
             return $next($request);
         }
         return redirect('/user');

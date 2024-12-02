@@ -13,23 +13,21 @@ class AuthController extends Controller
         return view('login');
     }
     public function dologin(Request $request){
-        // $email = $request->email;
-        // $password = $request->password;
-        // $user = \App\Models\User::Where('email', $email)->first();
-        // if (empty($user)) {
-        //     return redirect('/login')->with(
-        //         'status_message',
-        //         ['type' => 'danger', 'text' => 'email tidak ditemukan']
-        //     );
-        // }
-        // return redirect('/user');
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            if (Auth::user()->role == 'KONSUMEN'){
+                return redirect(route('home.index'));
+            }
             return redirect('/user');
         }
         return redirect('/login')->with(
             'status_message',
             ['type' => 'danger', 'text' => 'user tidak ditemukan']
         );
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/login');
     }
 }

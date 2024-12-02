@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <title>PAB</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -241,50 +241,64 @@
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
+            
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{ route('home.index') }}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Dashboard
               </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.index') }}">
-                    <svg class="bi"><use xlink:href="#file-earmark-text"></use></svg>
-                    {{ __('User') }}
-                </a>
+              <a class="nav-link" href="{{ route('user.index') }}">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                {{ __('User') }}
+              </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="{{ route('produk.index') }}">
-                  <svg class="bi"><use xlink:href="#file-earmark-text"></use></svg>
-                  {{ __('Produk') }}
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                {{ __('Produk') }}
               </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('province.index') }}">
-                <svg class="bi"><use xlink:href="#file-earmark-text"></use></svg>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('province.index') }}">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
                 {{ __('Provinsi') }}
-            </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('city.index') }}">
-              <svg class="bi"><use xlink:href="#file-earmark-text"></use></svg>
-              {{ __('Kota') }}
-          </a>
-      </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('alamat.index') }}">
-                <svg class="bi"><use xlink:href="#file-earmark-text"></use></svg>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('city.index') }}">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                {{ __('Kota') }}
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('alamat.index') }}">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
                 {{ __('Alamat') }}
-            </a>
-        </li>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('transaksi.daftar-produk') }}">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                {{ __('Transaksi') }}
+              </a>
+            </li>
+
             <!-- -->
           </ul>
 
-          <hr class="my-3">
 
+          <hr class="my-3">
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{ route('logout') }}">
                 <svg class="bi"><use xlink:href="#door-closed"/></svg>
                 Sign out
               </a>
@@ -327,5 +341,6 @@
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script   src="https://code.jquery.com/jquery-3.7.1.min.js"   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="   crossorigin="anonymous"></script>
 </body>
 </html>

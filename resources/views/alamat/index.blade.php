@@ -4,14 +4,14 @@
     <h1>{{ __('Alamat') }}</h1> 
     <div class="row"> 
         <div class="col-md-12"> 
-        <a class="btn btn-large btn-primary" 
-        href="{{ route('alamat.create') }}">Tambah Alamat</a> 
+            <a class="btn btn-large btn-primary" 
+            href="{{ route('alamat.create') }}">Tambah Alamat</a> 
         </div> 
-        </div> 
+    </div> 
     <table class="table table-striped"> 
         <thead> 
             <tr> 
-                <th>&nbsp;</th><th>User</th><th>Alamat</th><th>Kota</th> 
+                <th>&nbsp;</th><th>User</th><th>Alamat</th><th>Kota</th><th>Provinsi</th><th>Kode Pos</th>   
             </tr> 
         </thead> 
         <tbody> 
@@ -21,7 +21,6 @@
                     <a href="{{ route('alamat.edit', $alamat) }}"  
                         class="btn btn-primary">Edit
                     </a> 
-                    &nbsp; 
                     <form action="{{ route('alamat.destroy', $alamat) }}" 
                         method="POST"> 
                         @csrf 
@@ -32,25 +31,26 @@
                     </form> 
                 </td> 
                 <td>{{ $alamat->user->name }}<br/><small> 
-                    {{ $alamat->user->email }}</small></td> 
                 <td>{{ $alamat->alamat }}</td>
                 <td> 
-                    {{ $alamat->city->type }}&nbsp;{{ $alamat->city->city_name }}<br/> 
-                    {{ $alamat->city->province }}<br/> 
-                    {{ $alamat->city->postal_code }}<br/> 
-                    </td> 
-                    </tr> 
-                    @empty 
-                    <tr> 
-                    <td colspan="4"> 
+                    {{ $alamat->city->type }}&nbsp;
+                    {{ $alamat->city->city_name }}<br/> 
+                    <br/> 
+                </td> 
+                <td> {{ $alamat->city->province }}</td>
+                <td> {{ $alamat->city->postal_code }}</td>
+            </tr> 
+        @empty 
+            <tr> 
+                <td colspan="4"> 
                     <div class="alert alert-warning"> Tidak ada data!</div> 
-                    </td> 
-                    </tr> 
-                    @endforelse 
-                    </tbody> 
-                    </table> 
-                    @if($alamats) 
-                    {{ $alamats->links() }}  
-                    @endif 
-                    </div> 
-                    @endsection
+                </td> 
+            </tr> 
+        @endforelse 
+        </tbody> 
+    </table> 
+    @if($alamats) 
+        {{ $alamats->links() }}  
+    @endif 
+</div> 
+@endsection

@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Province;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlamatController extends Controller
 {
@@ -17,6 +18,9 @@ class AlamatController extends Controller
     {
         //
         $alamats = Alamat::paginate(10);
+        if (Auth::user()->role == 'KONSUMEN'){
+            $alamats = Alamat::where('user_id', Auth::user()->id)->paginate(10);
+        }
         return view('alamat.index', ['alamats' => $alamats]);
     }
 
